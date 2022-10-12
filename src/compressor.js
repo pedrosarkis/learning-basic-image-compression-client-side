@@ -106,5 +106,5 @@ const convertFileDirectlyToBlob = () => {
 // }
 
 
-document.getElementById('compressedSize').addEventListener('click', readFileAsArrayBuffer);
+document.getElementById('compressedSize').addEventListener('click', convertFileDirectlyToBlob);
 
