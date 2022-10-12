@@ -16,8 +16,8 @@ const encodeImageFileAsURL = () => {
     let reader = new FileReader();
     reader.onloadend = function () {
         document.getElementById('imageDisplay').src = reader.result;
-        document.getElementById('fileSize').innerHTML = `Tamanho original do arquivo: ${formatBytes(file.size)}`;
-        document.getElementById('base64Size').innerHTML = ` Tamanho do base64: ${reader.result.length / 1024} KB`;
+        document.getElementById('fileSize').innerHTML = `File original size: ${formatBytes(file.size)}`;
+        document.getElementById('base64Size').innerHTML = `Base64 size: ${reader.result.length / 1024} KB`;
     }
     reader.readAsDataURL(file);
 }
@@ -41,8 +41,8 @@ const readFileAsArrayBuffer = () => {
         ctx.drawImage(img, 0, 0);
         canvas.toBlob(function (blob) {
             document.getElementById('imageDisplay').src = URL.createObjectURL(blob);
-            document.getElementById('fileSize').innerHTML = `Tamanho original do arquivo: ${formatBytes(file.size)}`;
-            document.getElementById('base64Size').innerHTML = ` Tamanho do base64: ${blob.size / 1024} KB`;
+            document.getElementById('fileSize').innerHTML = `File original size: ${formatBytes(file.size)}`;
+            document.getElementById('base64Size').innerHTML = `Base64 size: ${blob.size / 1024} KB`;
         }, 'image/jpeg', 0.5);
     }
 
