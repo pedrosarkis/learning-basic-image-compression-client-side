@@ -11,7 +11,6 @@ function formatBytes(bytes, decimals = 2) {
 }
 
 const encodeImageFileAsURL = () => {
-    debugger;
     const [file] = document.getElementById('image').files;
     let reader = new FileReader();
     reader.onloadend = function () {
@@ -25,10 +24,9 @@ const encodeImageFileAsURL = () => {
 document.getElementById('normalSize').addEventListener('click', encodeImageFileAsURL);
 
 
-const readFileAsArrayBuffer = () => {
+const convertFileDirectlyToBlob = () => {
    
     const [file] = document.getElementById('image').files;
-    let reader = new FileReader();
     const blob = URL.createObjectURL(file);
     const img = new Image();
     img.src = blob;
@@ -45,8 +43,6 @@ const readFileAsArrayBuffer = () => {
             document.getElementById('base64Size').innerHTML = `Base64 size: ${blob.size / 1024} KB`;
         }, 'image/jpeg', 0.5);
     }
-
-
 
     // reader.onloadend = function () {
     //     // const blob = new Blob([reader.result], { type: file.type });
@@ -67,7 +63,7 @@ const readFileAsArrayBuffer = () => {
     //         document.getElementById('imageDisplay').src = compressedImage;
     //     }
     // }
-    reader.readAsDataURL(file);
+    //reader.readAsDataURL(file);
 }
 
 //porções de testes que não funcionaram
